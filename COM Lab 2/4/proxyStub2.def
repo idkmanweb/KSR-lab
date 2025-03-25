@@ -1,0 +1,7 @@
+LIBRARY "com2_4.dll"
+
+EXPORTS
+DllCanUnloadNow
+DllGetClassObject
+DllRegisterServer
+DllUnregisterServer
