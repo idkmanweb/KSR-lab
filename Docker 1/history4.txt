@@ -1,0 +1,8 @@
+cd C:\Users\potek\Downloads\LibrarySystem\LibrarySystem\Library.WebApi
+dotnet run
+./Dockerfile
+docker build -t webapiimg .
+docker run -d --name webapi --network library-network -p 91:80 webapiimg
+docker run -d --name webapi --network library-network -p 90:80 webapiimg
+docker run -d --name webapi --network library-network -p 90:80 -p 91:91 webapiimg
+doskey /HISTORY > d:\history4.txt

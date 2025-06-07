@@ -1,0 +1,3 @@
+cd C:\Users\potek\Downloads\LibrarySystem\LibrarySystem\Library.Web
+dotnet run
+doskey /HISTORY > d:\history3.txt

@@ -1,0 +1,25 @@
+netstat -ano | findstr :5672
+taskkill /PID 29720 /F
+docker run -d --hostname rabbitmq-host --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+sc query type= service | findstr /I rabbit
+net stop RabbitMQ
+docker run -d --hostname rabbitmq-host --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
+docker run -d --hostname rabbitmq-host --name rabbit -p 5672:5672 -p 15672:15672 rabbitmq:management
+telnet localhost 5672
+docker network ls
+docker network create library-network
+docker network connect library-network rabbit
+docker network connect library-network notificationservice
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet Library.NotificationService2.dll
+docker network connect library-network notificationservice2
+docker commit notificationservice notificationserviceimg
+docker images
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg
+docker logs notificationservice2
+docker run -it --entrypoint /bin/sh notificationserviceimg
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet Library.NotificationService2.dll
+docker run -it --rm --name notificationservice2 -p 92:80 notificationserviceimg dotnet Library.NotificationService2.dll
+docker run -it --rm --name notificationservice2 -p 92:80 notificationserviceimg dotnet app/out/Library.NotificationService2.dll
+docker run -it --rm --entrypoint /bin/sh notificationserviceimg
+doskey /HISTORY > d:\history2.txt

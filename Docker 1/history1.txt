@@ -1,0 +1,50 @@
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+cd ..
+docker cp ./Library.NotificationService2 notificationservice:/app
+docker exec -it notificationservice bash
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+docker cp ./Library.NotificationService2 notificationservice:/app
+docker exec -it notificationservice bash
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+docker cp ./Library.NotificationService2 notificationservice:/app
+docker exec -it notificationservice bash
+cd ./Library.NotificationService2
+dotnet publish
+dotnet build
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+docker cp . notificationservice:/app
+docker exec -it notificationservice bash
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+docker cp . notificationservice:/app
+docker exec -it notificationservice bash
+docker run -it --name notificationservice -p 92:80 mcr.microsoft.com/dotnet/core/sdk:2.2
+docker cp . notificationservice:/app
+docker exec -it notificationservice bash
+docker commit notificationservice notificationserviceimg
+docker images
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet Library.NotificationService2.dll
+docker run -it --rm notificationserviceimg sh
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet app/out/Library.NotificationService2.dll
+docker exec -it notificationservice bash
+docker commit notificationservice notificationserviceimg
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg
+docker exec -it notificationservice2 bash
+docker exec -it notificationservice bash
+docker commit notificationservice notificationservice_img
+docker images
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet /app/out/Library.NotificationService2.dll
+docker run -it --rm notificationserviceimg sh
+docker exec -it notificationservice bash
+docker commit notificationservice notificationserviceimg
+docker run -d --name notificationservice2 -p 92:80 notificationserviceimg dotnet /app/out/Library.NotificationService2.dll
+docker exec -it notificationservice bash
+docker run -it --rm -p 92:80 notificationserviceimg dotnet Library.NotificationService2.dll
+docker run -it --rm -p 92:80 notificationserviceimg dotnet app/out/Library.NotificationService2.dll
+docker exec -it notificationservice bash
+docker run -it --rm -p 92:80 -w /app notificationserviceimg dotnet out/Library.NotificationService2.dll
+docker networks
+docker --help
+docker network
+docker network ls
+docker run -it --rm -p 92:80 -w /app --network library-network notificationserviceimg dotnet out/Library.NotificationService2.dll
+doskey /HISTORY > d:\history1.txt
