@@ -1,0 +1,42 @@
+services:
+  rabbit:
+    image: rabbitmq:management
+    container_name: rabbit
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - library
+
+  library.web:
+    build:
+      context: ./Library.Web
+      dockerfile: Dockerfile
+    ports:
+      - "90:80"
+    environment:
+      - LibraryWebApiServiceHost=http://library.webapi
+    networks:
+      - library
+
+  library.webapi:
+    build:
+      context: ./Library.WebApi
+      dockerfile: Dockerfile
+    ports:
+      - "91:80"
+    networks:
+      - library
+
+  library.notificationservice2:
+    build:
+      context: ./Library.NotificationService2
+      dockerfile: Dockerfile
+    ports:
+      - "92:80"
+    networks:
+      - library
+
+networks:
+  library:
+    driver: bridge
